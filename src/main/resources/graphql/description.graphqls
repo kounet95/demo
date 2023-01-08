@@ -9,3 +9,13 @@ type BanqueTest{
     currency: String,
     type:String
 }
+type Mutation{
+    addcompte(banqueDTO: BanqueDTO): BanqueTest
+    update(id:String, banqueDTO: BanqueDTO) : BanqueTest
+}
+input BanqueDTO{
+    createdAt: Float,
+    balance: Float,
+    currency: String,
+    type:String
+}
