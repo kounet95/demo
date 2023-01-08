@@ -5,7 +5,9 @@ import com.example.demo.DTO.BanqueDTO;
 import com.example.demo.DTO.BanqueRequestDTO;
 import com.example.demo.DTO.BanqueResponseDTO;
 import com.example.demo.entity.BanqueTest;
+import com.example.demo.entity.Clients;
 import com.example.demo.repositori.BanqueRepositori;
+import com.example.demo.repositori.ClientRepositori;
 import com.example.demo.service.BanqueImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -19,6 +21,8 @@ import java.util.List;
 public class BanqControlerGraphql {
 @Autowired
     private BanqueRepositori banqueRepositori;
+@Autowired
+private ClientRepositori clientRepositori;
 @Autowired
 private BanqueImp banqueImp;
     @QueryMapping
@@ -39,7 +43,12 @@ private BanqueImp banqueImp;
         return banqueImp.update(id, banqueDTO);
     }
     @MutationMapping
-    public BanqueResponseDTO delete(@Argument String id,@Argument BanqueRequestDTO banqueDTO){
-        return banqueImp.update(id, banqueDTO);
+    public void delete(@Argument String id){
+       banqueRepositori.deleteById(id);
+    }
+
+    @QueryMapping
+    public List<Clients> clientsList(){
+        return  clientRepositori.findAll();
     }
 }

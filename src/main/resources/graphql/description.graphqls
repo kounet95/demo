@@ -1,18 +1,27 @@
 type Query{
     compteslistes: [BanqueTest],
+    clientsList : [Clients]
     comptelist (id : String) : BanqueTest
+}
+type Clients {
+    id : ID,
+    name : String,
+    li : [BanqueTest]
 }
 type BanqueTest{
     id: String,
     createdAt: Float,
     balance: Float,
     currency: String,
-    type:String
+    type:String,
+    client : Clients
 }
 type Mutation{
     addcompte(banqueDTO: BanqueDTO): BanqueTest
     update(id:String, banqueDTO: BanqueDTO) : BanqueTest
+    delete(id : String) : String
 }
+
 input BanqueDTO{
     createdAt: Float,
     balance: Float,
