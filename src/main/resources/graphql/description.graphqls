@@ -1,0 +1,10 @@
+type Query{
+    compteslistes: [BanqueTes]
+}
+type BanqueTes{
+    id:String,
+    createdAt: Float,
+    balance:Float,
+    currency:String,
+    type:String
+}
