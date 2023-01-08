@@ -1,7 +1,7 @@
 type Query{
     compteslistes: [BanqueTest],
     clientsList : [Clients]
-    comptelist (id : String) : BanqueTest
+    comptelist (id : String) :BanqueTest
 }
 type Clients {
     id : ID,
