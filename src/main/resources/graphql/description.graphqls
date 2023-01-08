@@ -1,10 +1,11 @@
 type Query{
-    compteslistes: [BanqueTes]
+    compteslistes: [BanqueTest],
+    comptelist (id : String) : BanqueTest
 }
-type BanqueTes{
-    id:String,
+type BanqueTest{
+    id: String,
     createdAt: Float,
-    balance:Float,
-    currency:String,
+    balance: Float,
+    currency: String,
     type:String
 }
